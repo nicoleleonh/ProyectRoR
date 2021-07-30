@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_30_032109) do
+ActiveRecord::Schema.define(version: 2021_07_30_040659) do
+
+  create_table "publications", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.text "image"
+    t.text "description"
+    t.text "documents"
+    t.float "amountoraise"
+    t.float "amountcollected"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_publications_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
