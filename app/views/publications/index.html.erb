@@ -1,41 +1,60 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Publications</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Image</th>
-      <th>Descripcion</th>
-      <th>Documents</th>
-      <th>Amountoraise</th>
-      <th>Amountcollected</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+
+
+<div class="container">
+  <% if signed_in? %>
+    <%= link_to 'Create New Publication', new_publication_path, class: "btn btn-dark"%>
+  <%end%>  
+</div>
 
   <tbody>
-    <% @publications.each do |publication| %>
-      <tr>
-        <td><%= publication.name %></td>
-        <td><%= publication.age %></td>
-        <td><%= publication.image %></td>
-        <td><%= publication.descripcion %></td>
-        <td><%= publication.documents %></td>
-        <td><%= publication.amountoraise %></td>
-        <td><%= publication.amountcollected %></td>
-        <td><%= publication.user %></td>
-        <td><%= link_to 'Show', publication %></td>
-        <td><%= link_to 'Edit', edit_publication_path(publication) %></td>
-        <td><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="container">
 
+    <h1 id="publications" class="text-center">Publications</h1>   
+        <div class="row"> 
+          <% @publications.each do |publication| %>
+            <div class="col-6 col-md-4 py-2">
+              <div class="card" style="width: 18rem;">
+                <img src="<%= url_for(publication.image) %>" class="card-img-top" alt="Image Animal">
+                <div class="card-body">
+                    <h5 class="card-title"><%= publication.name%></h5>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Age: <%= publication.age %></li>
+                      <li class="list-group-item">Description: <%= publication.description %></li>
+                      <li class="list-group-item">
+                        <strong>Documents: </strong>
+                        <ul>
+                          <% publication.documents.each do |document| %>
+                          <li>
+                            <%= link_to document.blob.filename.to_s, document %>
+                          </li>
+                          <% end %>
+                        </ul>
+                      </li>
+                      <li class="list-group-item">User: <%= image_tag(publication.user.profile_picture.attached? ? publication.user.profile_picture : 'default_profile_picture.png', class: "rounded-circle", width: "45", height: "45" ) %></li>
+                      <li class="list-group-item">Need: $<%= publication.amountoraise %></li>              
+                      <li class="list-group-item">Have: $<%= publication.amountcollected %></li>
+                      <% if signed_in? %>
+                      <li class="list-group-item">
+                          <a href="#" class="card-link"><%= link_to 'Show', publication %></a>
+                          <a href="#" class="card-link"><%= link_to 'Edit', edit_publication_path(publication) %></a>
+                          <a href="#" class="card-link"><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+                      </li>
+                      <%end%>  
+                    </ul>
+                </div>  
+              </div>    
+            </div>  
+            <% end %>  
+      </div>
+      </div>    
+  </tbody>
 <br>
 
-<%= link_to 'New Publication', new_publication_path %>
+

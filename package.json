@@ -1,5 +1,8 @@
 {
   "name": "ProyectRoR",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "chart.js": "^3.5.0",
+    "chartkick": "^4.0.5"
+  }
 }
