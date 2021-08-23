@@ -24,6 +24,22 @@
                 <img src="<%= url_for(publication.image) %>" class="card-img-top" alt="Image Animal">
                 <div class="card-body">
                     <h5 class="card-title"><%= publication.name%></h5>
+                    <h5 class="card-title"><%= publication.califications.count%>
+                     <% if calification(publication, current_user) %>
+                        <td>
+                            <%= link_to publication_calification_path(publication, calification(publication, current_user)), method: :delete do %>
+                                <i class="fas fa-star"></i>
+                            <% end %>
+                        </td>
+                    <% else %>
+                        <td>
+                            <%= link_to publication_califications_path(publication), method: :post do %>
+                                <i class="far fa-star"></i>
+                            <% end %>
+                        </td>
+                    <% end %></h5>
+
+                    
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item">Age: <%= publication.age %></li>
                       <li class="list-group-item">Description: <%= publication.description %></li>
@@ -37,7 +53,7 @@
                           <% end %>
                         </ul>
                       </li>
-                      <li class="list-group-item">User: <%= image_tag(publication.user.profile_picture.attached? ? publication.user.profile_picture : 'default_profile_picture.png', class: "rounded-circle", width: "45", height: "45" ) %></li>
+                      <li class="list-group-item">User: <%= image_tag(publication.user.profile_picture.attached? ? publication.user.profile_picture : 'default_profile_picture.png', class: "rounded-circle", width: "45", height: "45", data: {"bs-toggle":"tooltip", "bs-placement":"top"}, title:"Tooltip on top" ) %></li>
                       <li class="list-group-item">Need: $<%= publication.amountoraise %></li>              
                       <li class="list-group-item">Have: $<%= publication.amountcollected %></li>
                       <% if signed_in? %>

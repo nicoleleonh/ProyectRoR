@@ -26,18 +26,18 @@
 </p>
 
 <p>
-  <strong>Amountoraise:</strong>
+  <strong>Amountoraise: $</strong>
   <%= @publication.amountoraise %>
 </p>
 
 <p>
-  <strong>Amountcollected:</strong>
+  <strong>Amountcollected: $</strong>
   <%= @publication.amountcollected %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @publication.user %>
+  <%= @publication.user.email %>
 </p>
 
 <%= link_to 'Edit', edit_publication_path(@publication) %> |
