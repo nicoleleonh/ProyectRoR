@@ -18,7 +18,7 @@
             <%= image_tag(current_user.profile_picture.attached? ? current_user.profile_picture : 'default_profile_picture.png', class: "rounded-circle", width: "45", height: "45" ) %>
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><%= link_to "My Profile", user_path(current_user), class:"dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%=link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
           </ul>

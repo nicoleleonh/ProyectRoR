@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   devise_for :users, path: 'users', controllers: {
     sessions: 'users/sessions',
     :omniauth_callbacks => "users/omniauth_callbacks"
+    
   }
 
-
+  resources :users, only: [:show]
 
   devise_for :admins, path: 'administrator', skip: [:registrations], controllers: {
     sessions: 'admin/sessions',
