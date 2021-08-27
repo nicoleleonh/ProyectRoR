@@ -31,6 +31,7 @@
                                 <i class="fas fa-star"></i>
                             <% end %>
                         </td>
+                        
                     <% else %>
                         <td>
                             <%= link_to publication_califications_path(publication), method: :post do %>
@@ -62,6 +63,7 @@
                           <a href="#" class="card-link"><%= link_to 'Edit', edit_publication_path(publication) %></a>
                           <a href="#" class="card-link"><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></a>
                       </li>
+                      <strong class="text-center"><%= link_to 'View donations', donations_path %> </strong>
                       <%end%>  
                     </ul>
                 </div>  

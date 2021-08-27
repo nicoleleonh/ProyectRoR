@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     confimations: 'admin/confimations'
   }
 
+    resource :donations, only: [:show, :update] 
+  #   member do
+  #     post :pay_with_paypal
+  #     get  :process_paypal_payment
+  #   end
+
 
   resources :publications do
     resources :califications

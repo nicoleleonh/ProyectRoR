@@ -7,9 +7,10 @@ class User < ApplicationRecord
   # validates :profile_picture, presence: true
   validates :email, format: URI::MailTo::EMAIL_REGEXP
   has_one_attached :profile_picture
-
+  
   has_many :publications, dependent: :destroy
   has_many :califications, dependent: :destroy
+  has_many :donations
 
 
   def self.authenticate(email, password)

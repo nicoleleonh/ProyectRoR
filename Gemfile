@@ -32,6 +32,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 
 
+#AddPaymentWithPaypal
+gem "activemerchant", "~> 1.95"
+
+
 
 #Validates attached
 gem 'active_storage_validations'
