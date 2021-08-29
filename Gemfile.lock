@@ -29,11 +29,6 @@ GEM
     activejob (5.2.6)
       activesupport (= 5.2.6)
       globalid (>= 0.3.6)
-    activemerchant (1.120.0)
-      activesupport (>= 4.2)
-      builder (>= 2.1.2, < 4.0.0)
-      i18n (>= 0.6.9)
-      nokogiri (~> 1.4)
     activemodel (5.2.6)
       activesupport (= 5.2.6)
     activerecord (5.2.6)
@@ -166,6 +161,9 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    paypal-checkout-sdk (1.0.3)
+      paypalhttp (~> 1.0.0)
+    paypalhttp (1.0.0)
     pg (1.2.3)
     public_suffix (4.0.6)
     puma (3.12.6)
@@ -264,7 +262,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations
-  activemerchant (~> 1.95)
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
@@ -279,6 +276,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-rails_csrf_protection
+  paypal-checkout-sdk
   pg
   puma (~> 3.11)
   rails (~> 5.2.6)

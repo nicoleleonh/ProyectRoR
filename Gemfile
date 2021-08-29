@@ -34,8 +34,7 @@ gem 'omniauth-rails_csrf_protection'
 
 
 #AddPaymentWithPaypal
-gem "activemerchant", "~> 1.95"
-
+gem 'paypal-checkout-sdk'
 
 
 #Validates attached

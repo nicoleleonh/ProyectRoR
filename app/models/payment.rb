@@ -1,3 +1,3 @@
 class Payment < ApplicationRecord
-  belongs_to :donations
+  belongs_to :donation
 end

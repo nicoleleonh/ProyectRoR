@@ -56,14 +56,15 @@
                       </li>
                       <li class="list-group-item">User: <%= image_tag(publication.user.profile_picture.attached? ? publication.user.profile_picture : 'default_profile_picture.png', class: "rounded-circle", width: "45", height: "45", data: {"bs-toggle":"tooltip", "bs-placement":"top"}, title:"Tooltip on top" ) %></li>
                       <li class="list-group-item">Need: $<%= publication.amountoraise %></li>              
-                      <li class="list-group-item">Have: $<%= publication.amountcollected %></li>
+                      <li class="list-group-item">Donations: $<%= publication.confirmed_donations_amount %></li>
+                      
                       <% if signed_in? %>
                       <li class="list-group-item">
                           <a href="#" class="card-link"><%= link_to 'Show', publication %></a>
                           <a href="#" class="card-link"><%= link_to 'Edit', edit_publication_path(publication) %></a>
                           <a href="#" class="card-link"><%= link_to 'Destroy', publication, method: :delete, data: { confirm: 'Are you sure?' } %></a>
                       </li>
-                      <strong class="text-center"><%= link_to 'View donations', donations_path %> </strong>
+                      <strong class="text-center"><%= link_to 'View donations', publication_donations_path(publication) %> </strong>
                       <%end%>  
                     </ul>
                 </div>  

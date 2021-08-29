@@ -1,0 +1,30 @@
+    <div class="container">
+        monto a pagar <%= @donation.amount %>
+        
+        <div id="paypal-button-container"></div>
+        <script>
+        paypal.Buttons({
+            env: 'sandbox', // Valid values are sandbox and live.
+            createOrder: async () => {
+                const response = await fetch("<%= pay_publication_donation_path(@publication, @donation) %>", {method: 'POST'});
+                const responseData = await response.json();
+                return responseData.token;
+            },
+            onApprove: async (data) => {
+                const response = await fetch("<%= capture_publication_donations_path(@publication) %>", {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({token: data.orderID})
+                });
+                const responseData = await response.json();
+                if (responseData.status === 'COMPLETED') {
+                    window.location.replace("<%= success_publication_donations_path(@publication) %>");
+                } else {
+                    alert('error intentalo nuevamente')
+                }
+            }
+        }).render('#paypal-button-container');
+        </script>
+    </div>

@@ -1,9 +1,9 @@
 
 <div class="container">
-    <h1>New Donation</h1>
+    <h1>Editing Donation</h1>
 
     <%= render 'form', donation: @donation %>
 
+    <%= link_to 'Show', publication_donation_path(@publication, @donation) %> 
     <%= link_to 'Back', publication_donations_path(@publication) %>
 </div>
-

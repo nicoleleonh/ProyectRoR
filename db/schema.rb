@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_005107) do
+ActiveRecord::Schema.define(version: 2021_08_29_010900) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 2021_08_25_005107) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "amount"
+    t.boolean "paid", default: false
+    t.string "token"
     t.index ["publication_id"], name: "index_donations_on_publication_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
   end

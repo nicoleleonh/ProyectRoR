@@ -1,44 +1,47 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @publication.name %>
-</p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @publication.age %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @publication.name %>
+  </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @publication.image %>
-</p>
+  <p>
+    <strong>Age:</strong>
+    <%= @publication.age %>
+  </p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @publication.description %>
-</p>
+  <p>
+    <strong>Image:</strong>
+    <%= @publication.image %>
+  </p>
 
-<p>
-  <strong>Documents:</strong>
-  <%= @publication.documents %>
-</p>
+  <p>
+    <strong>Descripcion:</strong>
+    <%= @publication.description %>
+  </p>
 
-<p>
-  <strong>Amountoraise: $</strong>
-  <%= @publication.amountoraise %>
-</p>
+  <p>
+    <strong>Documents:</strong>
+    <%= @publication.documents %>
+  </p>
 
-<p>
-  <strong>Amountcollected: $</strong>
-  <%= @publication.amountcollected %>
-</p>
+  <p>
+    <strong>Amountoraise: $</strong>
+    <%= @publication.amountoraise %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @publication.user.email %>
-</p>
+  <p>
+    <strong>Amountcollected: $</strong>
+    <%= @publication.confirmed_donations_amount %>
+  </p>
 
-<%= link_to 'Edit', edit_publication_path(@publication) %> |
-<%= link_to 'Back', publications_path %>
+  <p>
+    <strong>User:</strong>
+    <%= @publication.user.email %>
+  </p>
+
+  <%= link_to 'Edit', edit_publication_path(@publication) %> |
+  <%= link_to 'Back', publications_path %>
+</div>

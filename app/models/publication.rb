@@ -9,4 +9,8 @@ class Publication < ApplicationRecord
 
   validates :image, attached: true, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
+
+  def confirmed_donations_amount
+    donations.confirmed.sum(:amount)
+  end
 end

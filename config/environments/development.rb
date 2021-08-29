@@ -63,14 +63,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.after_initialize do
-    ActiveMerchant::Billing::Base.mode = :test
-    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-      login: "sb-gxj677352544_api1.business.example.com",
-      password: "AFUV9F9SQACJ98QZ",
-      signature: "A5YQev0-x9qp7LjAXITdHH6-uOcPASUVMJrV8LKrOuobVuIwSiaNYdmn"
-    )
-  end
+
+  
 
   
 

@@ -1,28 +1,24 @@
-<% form_for @order do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <%= f.label :card_type %><br />
-    <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
-  </p>
-  <p>
-    <%= f.label :card_number %><br />
-    <%= f.text_field :card_number %>
-  </p>
-  <p>
-    <%= f.label :card_verification, "Card Verification Value (CVV)" %><br />
-    <%= f.text_field :card_verification %>
-  </p>
-  <p>
-    <%= f.label :card_expires_on %><br />
-    <%= f.date_select :card_expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
+<%= form_with(model: donation, url: [@publication, donation], local: true) do |form| %>
+  <% if donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+      <ul>
+      <% donation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field"> 
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+  <br>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>
