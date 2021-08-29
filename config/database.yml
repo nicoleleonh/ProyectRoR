@@ -22,4 +22,7 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: proyectoror
+  username: proyectoror
+  password: <%= ENV['PROYECTOROR_PASSWORD'] %>
+

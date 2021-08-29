@@ -12,6 +12,7 @@ class Admin::PublicationsController < Admin::BaseController
 
         respond_to do |format|
             if @publication.save
+                PostMailer.publication_create.delivery_later
                 format.html { redirect_to @publication, notice: "publication was successfully created." }
                 format.json { render :show, status: :created, location: @publication }
             else
