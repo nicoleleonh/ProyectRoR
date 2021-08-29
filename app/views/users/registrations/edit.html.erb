@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: '', html: { id: 'edit_form'}) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -32,9 +32,40 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", id: 'submit_button' %>
   </div>
 <% end %>
+
+
+<script>
+let form = document.querySelector('#edit_form')
+form.onsubmit = async function(e) {
+  e.preventDefault();
+  let values = {};
+  document.querySelector('#edit_form').querySelectorAll('input').forEach((elem) => {
+      values[elem.name] = elem.value
+  })
+
+  let data = new FormData(form)
+
+  response = await fetch("<%= registration_path(resource_name) %>", {
+    method: 'PATCH',
+    headers: {
+    'X-Requested-With': 'XMLHttpRequest'
+  },
+    body: data
+  })
+
+  console.log(response);
+
+  if(response.status == 204) {
+    window.location.replace("<%= user_path(current_user) %>");
+  } else {
+    alert('error');
+    document.querySelector('#submit_button').disabled = false
+  }
+}
+</script>
 
 <h3>Cancel my account</h3>
 
