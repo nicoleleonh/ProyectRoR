@@ -9,7 +9,7 @@ class PublicationsMailer < ApplicationMailer
     @greeting = "Hi"
 
     mail( to: "v25093735@gmail.com",
-    subject: "prueba correo"    
+    subject: "Felicidades, tu publicación ha sido creada"    
     )
   end
 end
