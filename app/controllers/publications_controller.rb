@@ -27,6 +27,7 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       if @publication.save
+        PublicationsMailer.publication_create.deliver_later
         format.html { redirect_to @publication, notice: "Publication was successfully created." }
         format.json { render :show, status: :created, location: @publication }
       else
