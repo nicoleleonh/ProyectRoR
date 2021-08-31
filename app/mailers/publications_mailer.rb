@@ -6,7 +6,7 @@ class PublicationsMailer < ApplicationMailer
   #   en.publications_mailer.publication_create.subject
   #
   def publication_create
-    @greeting = "Hi"
+    @greeting = "Hello!!"
 
     mail( to: "v25093735@gmail.com",
     subject: "Felicidades, tu publicación ha sido creada"    

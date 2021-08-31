@@ -27,6 +27,10 @@ gem 'chartkick'
 #AddFaker
 gem 'faker'
 
+#AddSentry
+gem "sentry-ruby"
+gem "sentry-rails"
+
 #AddGemFacebook
 gem 'omniauth'
 gem 'omniauth-facebook'
