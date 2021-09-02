@@ -31,8 +31,10 @@
     <%= pie_chart @publicationstocollected, class:"my-4 w-100 chartjs-render-monitor" %>
 
 
-     <%= link_to 'Edit Account User', edit_user_registration_path %> <br>
-            <%= link_to 'Destroy Account User', user_registration_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit Account User', edit_user_registration_path %> <br>
+            <%= link_to 'Destroy Account User', user_registration_path, method: :delete, data: { confirm: 'Are you sure?' } %> <br>
+            <%= link_to 'Back', publications_path(@publication) %>
+
 
 </div>
 

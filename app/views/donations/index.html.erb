@@ -16,15 +16,20 @@
             <td>Amount to donate: $<%= donation.amount%></td>
             <td>User: <%= donation.user.email%></td>
             <%# <td>Amount to raise: $<%= Publication.amountoraise%></td> 
-            <td><%= link_to 'Show', publication_donation_path(@publication, donation) %></td>
-            <td><%= link_to 'Edit', edit_publication_donation_path(@publication, donation) %></td>
-            <td><%= link_to 'Destroy', publication_donation_path(@publication, donation), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+            </tr>
         <% end %>
     </tbody>
     </table>
 
     <br>
 
-    <%= link_to 'New Donation', new_publication_donation_path(@publication) %>
+   
+
+    <% if @publication.confirmed_donations_amount == @publication.amountoraise%>
+        <%= 'No se permiten más devoluciones ¡Cumplimos la meta!' %> 
+    <%else%>
+        <%= link_to 'New Donation', new_publication_donation_path(@publication) %>                
+    <%end%>
+    <br>
+    <%= link_to 'Back', publications_path(@publication) %>
 </div>

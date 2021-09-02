@@ -13,4 +13,11 @@ class Publication < ApplicationRecord
   def confirmed_donations_amount
     donations.confirmed.sum(:amount)
   end
+
+
+  def available_publication
+    if @publication.amountoraise == donations.confirmed.sum(:amount)
+      @publication.available = false
+    end
+  end
 end

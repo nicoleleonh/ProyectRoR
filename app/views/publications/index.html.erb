@@ -1,4 +1,7 @@
 
+
+
+ 
 <div class="container">
   <% if signed_in? %>
     <%= link_to 'Create New Publication', new_publication_path, class: "btn btn-dark"%>
@@ -15,6 +18,14 @@
               <div class="card" style="width: 18rem;">
                 <img src="<%= url_for(publication.image) %>" class="card-img-top" alt="Image Animal">
                 <div class="card-body">
+                    <h5 class="card-title text-end">Available: 
+                      <% if publication.amountoraise == publication.confirmed_donations_amount%>
+                        <i class="far fa-times-circle"></i>
+                        <%publication.available = false%>
+                      <%else%>
+                        <i class="far fa-check-circle"> </i>
+                      <%end%>
+                    </h5>
                     <h5 class="card-title"><%= publication.name%></h5>
                     <h5 class="card-title"><%= publication.califications.count%>
                      <% if calification(publication, current_user) %>
