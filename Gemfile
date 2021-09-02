@@ -40,6 +40,8 @@ gem 'omniauth-rails_csrf_protection'
 #AddPaymentWithPaypal
 gem 'paypal-checkout-sdk'
 
+#AddAWSS3
+gem 'aws-sdk-s3'
 
 #Validates attached
 gem 'active_storage_validations'
