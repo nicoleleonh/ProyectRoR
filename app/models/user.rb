@@ -10,7 +10,7 @@ class User < ApplicationRecord
   
   has_many :publications, dependent: :destroy
   has_many :califications, dependent: :destroy
-  has_many :donations
+  has_many :donations, dependent: :destroy
 
 
   def self.authenticate(email, password)

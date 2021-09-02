@@ -3,7 +3,7 @@ class Publication < ApplicationRecord
   has_one_attached :image
   has_many_attached :documents
   has_many :califications, dependent: :destroy
-  has_many :donations
+  has_many :donations, dependent: :destroy
   has_many :payments
 
 
