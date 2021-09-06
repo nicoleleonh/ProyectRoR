@@ -16,7 +16,7 @@ class Publication < ApplicationRecord
 
 
   def available_publication
-    if @publication.amountoraise == donations.confirmed.sum(:amount)
+    if @publication.amountoraise < donations.confirmed.sum(:amount) || @publication.amountoraise == donations.confirmed.sum(:amount) 
       @publication.available = false
     end
   end

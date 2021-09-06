@@ -2,46 +2,87 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @publication.name %>
-  </p>
 
-  <p>
-    <strong>Age:</strong>
-    <%= @publication.age %>
-  </p>
 
-  <p>
-    <strong>Image:</strong>
-    <%= @publication.image %>
-  </p>
-
-  <p>
-    <strong>Descripcion:</strong>
-    <%= @publication.description %>
-  </p>
-
-  <p>
-    <strong>Documents:</strong>
-    <%= @publication.documents %>
-  </p>
-
-  <p>
-    <strong>Amountoraise: $</strong>
-    <%= @publication.amountoraise %>
-  </p>
-
-  <p>
-    <strong>Amountcollected: $</strong>
-    <%= @publication.confirmed_donations_amount %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= @publication.user.email %>
-  </p>
-
-  <%= link_to 'Edit', edit_publication_path(@publication) %> |
-  <%= link_to 'Back', publications_path %>
 </div>
+
+
+
+<div class="container py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+              <img class="w-100 border-radius-lg shadow-lg mx-auto" src="<%= url_for(@publication.image) %>" alt="chair">
+                <div src="" class="col-xl-5 col-lg-6 text-center">
+                  </div>
+                  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+                  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+                    <!-- Background of PhotoSwipe.
+It's a separate element, as animating opacity is faster than rgba(). -->
+                    <div class="pswp__bg"></div>
+                    <!-- Slides wrapper with overflow:hidden. -->
+                    <div class="pswp__scroll-wrap">
+                      <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+                      <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+                      <div class="pswp__container">
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                        <div class="pswp__item"></div>
+                      </div>
+                      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                      <div class="pswp__ui pswp__ui--hidden">
+                        <div class="pswp__top-bar">
+                          <!--  Controls are self-explanatory. Order can be changed. -->
+                          <div class="pswp__counter"></div>
+                          
+                          <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                          <!-- element will get class pswp__preloader--active when preloader is running -->
+                          <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                              <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                          <div class="pswp__share-tooltip"></div>
+                        </div>
+                        <div class="pswp__caption">
+                          <div class="pswp__caption__center"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5 mx-auto">
+                  <h2 class="mt-lg-0 mt-4"><%= @publication.name %></h2>
+                  <br>
+                  <h6 class="mb-0 mt-3">Age:</h6>
+                  <h5><%= @publication.age%></h5>
+            
+                  <h6 class="mb-0 mt-3">Amount to raise:</h6>
+                  <h5>$<%= @publication.amountoraise%></h5>
+              
+                  <h6 class="mb-0 mt-3">Amount to collected:</h6>
+                  <h5>$<%= @publication.confirmed_donations_amount %></h5>
+                 
+                  <h6 class="mt-4">Description:</h6>
+                  <%= @publication.description %>
+                  <h6 class="mt-4">User:</h6>
+                  <%= @publication.user.email %>
+
+                  </div>
+                  <div class="text-end">
+                   <%= link_to 'Edit', edit_publication_path(@publication) %> |
+                    <%= link_to 'Back', publications_path%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

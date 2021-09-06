@@ -24,3 +24,9 @@ var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
 })
+
+
+document.getElementById('#show-typeform').addEventListener('click',function (event){
+    document.getElementById('#typeform').remove('d-none');
+    document.getElementById('typeform').style.display = 'none';
+});

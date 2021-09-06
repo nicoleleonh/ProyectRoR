@@ -12,13 +12,16 @@
   <% end %>
 
 
-  <div class="field"> 
+  <div class="field mb-3"> 
     <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <input class="form-control" <%= form.number_field  :amount %>
   </div>
-  <br>
+  
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-dark" %>
   </div>
 <% end %>
+
+
+
