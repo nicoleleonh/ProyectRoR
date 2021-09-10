@@ -7,6 +7,25 @@ class Admin::PublicationsController < Admin::BaseController
         @publication = Publication.new
     end
 
+    def edit
+ 
+    end
+   
+    def update
+        respond_to do |format|
+            if @publication.update(user_params)
+              format.html { redirect_to admin_path, notice: "publication was successfully updated." }
+              format.json { render :admin, status: :ok, location: @publication }
+            else
+              format.html { render :edit, status: :unprocessable_entity }
+              format.json { render json: @user.errors, status: :unprocessable_entity }
+            end
+          end
+
+    end
+
+  
+
     def create
         @publication = Publication.new(publication)
 

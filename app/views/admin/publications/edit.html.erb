@@ -1,0 +1,50 @@
+  <div class="container">
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+    
+  
+
+    
+    <%= form_with(model: @publication, local: true, method: :get )do |form| %>
+
+        <div class="field mb-3">
+        <h4><%= form.label :name %></h4>
+        <input class="form-control" <%= form.text_field :name %>
+        </div>
+
+        <div class="field mb-3 ">
+        <h4><%= form.label :age %></h4>
+        <input class="form-control" <%= form.number_field :age %>
+        </div>
+        
+        <div class="field mb-3">
+        <div class="field">
+        <h4><%= form.label :image %></h4>
+        <input class="form-control" type="file" id="formFile" <%= form.file_field :image %>
+        </div>
+
+        <div class="field mb-3">
+        <h4><%= form.label :description %></h4>
+        <textarea class="form-control " <%= form.text_area :description %></textarea>
+        </div>
+
+        <div class="field mb-3">
+            <h4><%= form.label :documents %></h4>
+            <input class="form-control" type="file" id="formFile"<%= form.file_field :documents, multiple: true %>
+        </div>
+
+        <div class="field mb-3">
+        <h4><%= form.label :amountoraise %></h4>
+        <span class="form-control">$ <%= form.text_field :amountoraise %></span>
+        </div> 
+        
+        <div class="actions">
+        <%= form.submit class:"btn btn-dark" %>
+        </div>
+    <% end %>
+
+
+ 
+</main>
+   </div>
+
+

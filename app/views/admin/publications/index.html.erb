@@ -24,6 +24,8 @@
               <td><%= p.amountoraise %></td>
               <td><%= p.confirmed_donations_amount %></td>
               <td><%= p.user_id %></td>
+              <td><%= link_to 'Edit', edit_admin_publication_path(p) %></td>
+              <!-- <td><%= link_to 'Destroy', admin_publication_path(p), method: :delete, data: { confirm: 'Are you sure?' } %></td>       -->
             </tr>
           <% end %>
           </tbody>

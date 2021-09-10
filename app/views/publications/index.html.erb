@@ -65,6 +65,8 @@
                         </ul>
                       </li>
                       <li class="list-group-item">User: <%= image_tag(publication.user.profile_picture.attached? ? publication.user.profile_picture : 'default_profile_picture.png', class: "rounded-circle", width: "45", height: "45", data: {"bs-toggle":"tooltip", "bs-placement":"top"}, title:"Tooltip on top" ) %></li>
+                      <li class="list-group-item">Email: <%= publication.user.email %></li>              
+                      
                       <li class="list-group-item">Need: $<%= publication.amountoraise %></li>              
                       <li class="list-group-item">Donations: $<%= publication.confirmed_donations_amount %></li>
                       
