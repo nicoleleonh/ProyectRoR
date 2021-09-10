@@ -40,6 +40,9 @@ Admin.create(email: 'admin@project.com', password: '123456')
 ## Demo APP
  [https://salty-reaches-96405.herokuapp.com/](https://salty-reaches-96405.herokuapp.com/)
 
+## Domain
+http://www.happylanddogsandfriends.site/ 
+
 
 
 
