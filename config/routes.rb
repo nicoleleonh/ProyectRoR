@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    get '', to: 'dashboard#index'
+    get '', to: 'admins#index'
     resources :reports, only: [:index]
     resources :admins
     resources :users
