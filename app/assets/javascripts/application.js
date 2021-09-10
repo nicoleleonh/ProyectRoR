@@ -19,14 +19,22 @@
 //= require Chart.bundle
 
 
+document.addEventListener("turbolinks:load", function() {
 
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+
+    var formButton = document.getElementById('show-typeform')
+
+    formButton.addEventListener('click',function (event){
+        document.getElementById('typeform').classList.remove('d-none');
+        formButton.style.display = 'none';
+    });
+
 })
 
 
-document.getElementById('#show-typeform').addEventListener('click',function (event){
-    document.getElementById('#typeform').remove('d-none');
-    document.getElementById('typeform').style.display = 'none';
-});
+

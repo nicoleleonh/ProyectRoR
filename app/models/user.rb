@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_one_attached :profile_picture
   
   has_many :publications, dependent: :destroy
+  # Todas las Donaciones realizadas a todas mis publicacione
+  has_many :publications_donations, through: :publications, source: :donations
   has_many :califications, dependent: :destroy
   has_many :donations, dependent: :destroy
 

@@ -56,10 +56,10 @@ It's a separate element, as animating opacity is faster than rgba(). -->
                    
                   </div>
                   <div class="text-end">
-                    <% if @publication.confirmed_donations_amount >= @publication.amountoraise%>
-                        <h6 class="fw-bold"><%= 'No se permiten más devoluciones ¡Cumplimos la meta!' %></h6>
+                    <% if @publication.available %>
+                      <%= link_to 'New Donation', new_publication_donation_path(@publication) %>  
                     <%else%>
-                        <%= link_to 'New Donation', new_publication_donation_path(@publication) %>                
+                      <h6 class="fw-bold"><%= 'No se permiten más devoluciones ¡Cumplimos la meta!' %></h6>              
                     <%end%>
                     <br>
                     <%= link_to 'Back', publications_path(@publication) %>

@@ -1,18 +1,10 @@
 
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <div class="container">
 
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">User Profile</h1>
-        
-           
-         
+
           <%# <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
@@ -25,11 +17,29 @@
       </div>
 
     <h5>Email: <%= @user.email %></h5>
-    <h5>Publications according to the amount to be raised </h5>
-    <%= pie_chart @publicationstoraise, class:"my-4 w-100 chartjs-render-monitor" %>
-    <h5>Publications according to the amount collected </h5>
-    <%= pie_chart @publicationstocollected, class:"my-4 w-100 chartjs-render-monitor" %>
+    <h5>Publications according to available state</h5>
+    <%= pie_chart @publication_states, class:"my-4 w-100 chartjs-render-monitor" %>
 
+    <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Publication</th>
+              <th scope="col">Author Email</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Created At</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @last_donations.each do |d| %>
+            <tr>
+            <td><%= d.publication.name %></td>
+              <td><%= d.user.email %></td>
+              <td><%= d.amount %></td>
+              <td><%= d.created_at %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
 
             <%= link_to 'Edit Account User', edit_user_registration_path %> <br>
             <%= link_to 'Destroy Account User', user_registration_path, method: :delete, data: { confirm: 'Are you sure?' } %> <br>

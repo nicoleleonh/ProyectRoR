@@ -1,10 +1,13 @@
 class PublicationsController < ApplicationController
-  before_action :set_publication, only: %i[ show edit update destroy ]
+  before_action :set_publication, only: %i[ show ]
   before_action :authenticate_user!
+  before_action :set_publication_currentuser, only: %i[ edit update destroy ]
+
 
   # GET /publications or /publications.json
   def index
-    @publications = Publication.all
+    @q = Publication.ransack(params[:q])
+    @publications = @q.result(distinct: true)
   end
 
   # GET /publications/1 or /publications/1.json
@@ -57,6 +60,10 @@ class PublicationsController < ApplicationController
       format.html { redirect_to publications_url, notice: "Publication was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def set_publication_currentuser
+    @publication = current_user.publications.find(params[:id])
   end
 
   private

@@ -75,10 +75,13 @@ It's a separate element, as animating opacity is faster than rgba(). -->
                   <%= @publication.user.email %>
 
                   </div>
-                  <div class="text-end">
-                   <%= link_to 'Edit', edit_publication_path(@publication) %> |
-                    <%= link_to 'Back', publications_path%>
-                  </div>
+                  <%if @publication.user == current_user%>
+                    <div class="text-end">
+                    <%= link_to 'Edit', edit_publication_path(@publication) %> 
+                  <%end%>
+                      <%= link_to 'Back', publications_path%>
+                    </div>
+                  
                 </div>
               </div>
             </div>

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
     def show
         @user = current_user
-        @publicationstoraise = @user.publications.group(:amountoraise).count
-        @publicationstocollected = @user.publications.group(:amountcollected).count
+        @publication_states = @user.publications.group(:available).count
+        @last_donations = @user.publications_donations.order(created_at: :desc).limit(5)
     end
 end
+

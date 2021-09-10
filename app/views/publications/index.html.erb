@@ -13,6 +13,12 @@
   <br>
   <div class="container">
 
+  <%= search_form_for @q do |f| %>
+    <%= f.label :name %>
+    <%= f.search_field :name_matches %>
+    <%= f.submit %>
+  <% end %>
+
     <h1 id="publications" class="text-center">Publications</h1>   
         <div class="row"> 
           <% @publications.each do |publication| %>
@@ -21,11 +27,10 @@
                 <img src="<%= url_for(publication.image) %>" class="card-img-top" alt="Image Animal">
                 <div class="card-body">
                     <h5 class="card-title text-end">Available: 
-                      <% if publication.amountoraise <= publication.confirmed_donations_amount%>
-                        <i class="far fa-times-circle"></i>
-                        <%publication.available = false%>
-                      <%else%>
+                      <% if publication.available %>
                         <i class="far fa-check-circle"> </i>
+                      <%else%>
+                        <i class="far fa-times-circle"></i>
                       <%end%>
                     </h5>
                     <h5 class="card-title"><%= publication.name%></h5>
@@ -64,9 +69,11 @@
                       <li class="list-group-item">Donations: $<%= publication.confirmed_donations_amount %></li>
                       
                       <% if signed_in? %>
-                      <li class="list-group-item">
-                          <a href="#" class="card-link"><%= link_to 'Show', publication %></a>
-                          <a href="#" class="card-link"><%= link_to 'Edit', edit_publication_path(publication) %></a>
+                          <li class="list-group-item">
+                              <a href="#" class="card-link"><%= link_to 'Show', publication %></a>
+                            <% if publication.user == current_user%>
+                                <a href="#" class="card-link"><%= link_to 'Edit', edit_publication_path(publication) %></a>
+                            <% end%>
                           </li>
                       <strong class="text-center"><%= link_to 'View donations', publication_donations_path(publication) %> </strong>
                       <%end%>  

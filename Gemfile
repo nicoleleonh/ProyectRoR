@@ -21,6 +21,9 @@ gem 'uglifier', '>= 1.3.0'
 #Add Devise
 gem 'devise'
 
+
+#Add Ransack
+gem 'ransack'
 #AddKaminari
 gem 'chartkick'
 
